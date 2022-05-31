@@ -1,0 +1,1 @@
+Projeto de conclusão de semestre da disciplina de Programação de Soluções Computacionais da UniRitter

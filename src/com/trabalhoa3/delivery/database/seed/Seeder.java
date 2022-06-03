@@ -1,4 +1,4 @@
-package main.java.com.trabalhoa3.delivery.database.seed;
+package com.trabalhoa3.delivery.database.seed;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -9,7 +9,7 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
-import main.java.com.trabalhoa3.delivery.util.ConvertToCsv;
+import com.trabalhoa3.delivery.util.ConvertToCsv;
 
 public class Seeder {
     private final Map<String, String[]> files = new HashMap<>();
@@ -21,7 +21,7 @@ public class Seeder {
     }
 
     private void createFiles() {
-        Path path = Paths.get("src", "main", "java", "com", "trabalhoa3", "delivery", "database", "files");
+        Path path = Paths.get("src", "com", "trabalhoa3", "delivery", "database", "files");
 
         this.files.forEach((fileName, fileHeaders) -> {
             Path filePath = Paths.get(path.toAbsolutePath().toString(),

@@ -1,4 +1,4 @@
-package main.java.com.trabalhoa3.delivery.database;
+package com.trabalhoa3.delivery.database;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -6,11 +6,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-import main.java.com.trabalhoa3.delivery.database.seed.Seeder;
-import main.java.com.trabalhoa3.delivery.util.FileIO;
+import com.trabalhoa3.delivery.database.seed.Seeder;
+import com.trabalhoa3.delivery.util.FileIO;
 
 public class Database {
-    private final Path PATH = Paths.get("src", "main", "java", "com", "trabalhoa3", "delivery", "database", "files");
+    private final Path PATH = Paths.get("src", "com", "trabalhoa3", "delivery", "database", "files");
     private final String FILE_EXTENSION_TYPE = ".csv";
 
     public Database() {

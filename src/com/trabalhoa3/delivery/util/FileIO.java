@@ -1,4 +1,4 @@
-package main.java.com.trabalhoa3.delivery.util;
+package com.trabalhoa3.delivery.util;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

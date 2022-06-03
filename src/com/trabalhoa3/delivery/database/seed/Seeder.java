@@ -21,8 +21,15 @@ public class Seeder {
     }
 
     private void createFiles() {
-        Path path = Paths.get("src", "com", "trabalhoa3", "delivery", "database", "files");
-
+        Path of = Path.of("src", "com", "trabalhoa3", "delivery", "database", "files");
+        Path path = of;
+        if(!Files.exists(path)){
+            try {
+                Files.createDirectories(of);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
         this.files.forEach((fileName, fileHeaders) -> {
             Path filePath = Paths.get(path.toAbsolutePath().toString(),
                     fileName.concat(this.FILE_EXTENSION_TYPE));

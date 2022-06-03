@@ -6,7 +6,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-import com.trabalhoa3.delivery.database.seed.Seeder;
 import com.trabalhoa3.delivery.util.FileIO;
 
 public class Database {
@@ -14,7 +13,6 @@ public class Database {
     private final String FILE_EXTENSION_TYPE = ".csv";
 
     public Database() {
-        Seeder sd = new Seeder();
     }
 
     public void writeFile(Path filePath, String[] data) {

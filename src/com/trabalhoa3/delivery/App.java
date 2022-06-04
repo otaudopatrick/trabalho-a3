@@ -1,26 +1,23 @@
 package com.trabalhoa3.delivery;
 
-import com.trabalhoa3.delivery.controller.UserController;
-import com.trabalhoa3.delivery.database.seed.Seeder;
-import com.trabalhoa3.delivery.model.UserModel;
-import com.trabalhoa3.delivery.repository.UserRepository;
-import com.trabalhoa3.delivery.service.UserService;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.trabalhoa3.delivery.adapters.in.CommandLine.Menu;
+import com.trabalhoa3.delivery.adapters.out.fileDatabase.UserRepositoryFileImpl;
+import com.trabalhoa3.delivery.database.Database;
+import com.trabalhoa3.delivery.domain.entities.User;
+import com.trabalhoa3.delivery.domain.ports.UserRepository;
+import com.trabalhoa3.delivery.domain.services.CreateNewUser;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("Hello world!!");
-        Map< String, String > user = new HashMap<>();
-        Seeder se = new Seeder();
-        user.put("name", "Patrick Luz");
-        user.put("cpf", "27");
+        Database db = new Database();
+        db.createTables();
 
-        UserModel userModel = new UserModel();
-        UserRepository userRepository = new UserRepository(userModel);
-        UserService userService = new UserService(userRepository);
-        UserController userController = new UserController(userService);
-        userController.create(user);
+        // User user = new User("Patrick Luz", "teste@teste.com");
+        // UserRepository userRepo = new UserRepositoryFileImpl();
+        // CreateNewUser createNewUser = new CreateNewUser(userRepo);
+        // createNewUser.execute(user);
+
+        Menu menu = new Menu();
+        menu.render();
     }
 }

@@ -6,13 +6,16 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
+import com.trabalhoa3.delivery.database.seed.Seeder;
 import com.trabalhoa3.delivery.util.FileIO;
 
 public class Database {
     private final Path PATH = Paths.get("src", "com", "trabalhoa3", "delivery", "database", "files");
     private final String FILE_EXTENSION_TYPE = ".csv";
+    private Seeder seeder;
 
     public Database() {
+        this.seeder = new Seeder(this.PATH);
     }
 
     public void writeFile(Path filePath, String[] data) {
@@ -39,6 +42,10 @@ public class Database {
 
     public String getPathToString() {
         return this.PATH.toAbsolutePath().toString();
+    }
+
+    public void createTables() {
+        this.seeder.createFiles();
     }
 
 }

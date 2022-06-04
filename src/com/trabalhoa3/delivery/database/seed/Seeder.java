@@ -14,16 +14,17 @@ import com.trabalhoa3.delivery.util.ConvertToCsv;
 public class Seeder {
     private final Map<String, String[]> files = new HashMap<>();
     private final String FILE_EXTENSION_TYPE = ".csv";
+    private Path of;
 
-    public Seeder() {
-        this.files.put("User", new String[] { "id", "name", "email", "password" });
+    public Seeder(Path of) {
+        this.of = of;
+        this.files.put("user", new String[] { "id", "name", "email" });
         this.createFiles();
     }
 
-    private void createFiles() {
-        Path of = Path.of("src", "com", "trabalhoa3", "delivery", "database", "files");
+    public void createFiles() {
         Path path = of;
-        if(!Files.exists(path)){
+        if (!Files.exists(path)) {
             try {
                 Files.createDirectories(of);
             } catch (IOException e) {

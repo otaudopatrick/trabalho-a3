@@ -36,9 +36,15 @@ public class FileIO {
         List<List<String>> records = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
+            int count = 0;
             while ((line = br.readLine()) != null) {
+                if (count == 0) {
+                    count++;
+                    continue;
+                }
                 String[] values = line.split(COMMA_DELIMITER);
                 records.add(Arrays.asList(values));
+                count++;
             }
         }
         return records;

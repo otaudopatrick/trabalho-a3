@@ -9,5 +9,7 @@ public interface UserRepository {
 
     public User findByEmail(String email);
 
-    public List<User> findAll(int page, int size);
+    public List<List<String>> findAll(int page, int size);
+
+    public List<List<String>> findAll();
 }

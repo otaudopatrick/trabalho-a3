@@ -1,9 +1,12 @@
 package com.trabalhoa3.delivery.adapters.out.fileDatabase;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.UUID;
+import java.util.function.Consumer;
 
 import com.trabalhoa3.delivery.domain.entities.User;
 import com.trabalhoa3.delivery.domain.ports.UserRepository;
@@ -30,11 +33,45 @@ public class UserRepositoryFileImpl implements UserRepository {
 
     @Override
     public User findByEmail(String email) {
+        List<List<String>> users = this.findAll();
+        for (List<String> user : users) {
+            boolean isUserContaisnerEmail = user.contains(email);
+            if (isUserContaisnerEmail) {
+                User userFromDb = new User(user.get(1), user.get(2), user.get(3));
+                return userFromDb;
+            }
+        }
         return null;
     }
 
     @Override
-    public List<User> findAll(int page, int size) {
+    public List<List<String>> findAll() {
+        try {
+            List<List<String>> usersList = FileIO.readFile(this.FILE_PATH.toAbsolutePath().toString());
+            return usersList;
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<List<String>> findAll(int page, int size) {
+        try {
+            List<List<String>> usersList = FileIO.readFile(this.FILE_PATH.toAbsolutePath().toString());
+            System.out.println(usersList);
+            return usersList;
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         return null;
     }
 

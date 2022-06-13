@@ -6,7 +6,7 @@ import com.trabalhoa3.delivery.adapters.out.fileDatabase.UserRepositoryFileImpl;
 import com.trabalhoa3.delivery.database.Database;
 import com.trabalhoa3.delivery.domain.entities.User;
 import com.trabalhoa3.delivery.domain.ports.UserRepository;
-import com.trabalhoa3.delivery.domain.services.CreateNewUser;
+import com.trabalhoa3.delivery.domain.services.CreateNewClient;
 
 public class App {
     public static void main(String[] args) {

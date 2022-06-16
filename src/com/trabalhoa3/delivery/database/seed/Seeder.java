@@ -18,7 +18,7 @@ public class Seeder {
 
     public Seeder(Path of) {
         this.of = of;
-        this.files.put("user", new String[] { "id", "name", "email" });
+        this.files.put("user", new String[] { "id", "name", "email", "password" });
         this.createFiles();
     }
 

@@ -6,7 +6,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.UUID;
-import java.util.function.Consumer;
 
 import com.trabalhoa3.delivery.domain.entities.User;
 import com.trabalhoa3.delivery.domain.ports.UserRepository;
@@ -50,10 +49,8 @@ public class UserRepositoryFileImpl implements UserRepository {
             List<List<String>> usersList = FileIO.readFile(this.FILE_PATH.toAbsolutePath().toString());
             return usersList;
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return null;
@@ -66,10 +63,8 @@ public class UserRepositoryFileImpl implements UserRepository {
             System.out.println(usersList);
             return usersList;
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return null;

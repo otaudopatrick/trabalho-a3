@@ -1,4 +1,4 @@
-package com.trabalhoa3.delivery.domain.services;
+package com.trabalhoa3.delivery.domain.services.client;
 
 import com.trabalhoa3.delivery.domain.entities.User;
 import com.trabalhoa3.delivery.domain.exceptions.UserExistsException;

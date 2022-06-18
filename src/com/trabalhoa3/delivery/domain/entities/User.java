@@ -1,9 +1,10 @@
 package com.trabalhoa3.delivery.domain.entities;
 
 public class User {
-    private String name;
-    private String email;
-    private String password;
+    private String name, email, password;
+    private String[] phone;
+    private Adress adress;
+    private Rating rating;
 
     public User(String name, String email, String password) {
         this.name = name;

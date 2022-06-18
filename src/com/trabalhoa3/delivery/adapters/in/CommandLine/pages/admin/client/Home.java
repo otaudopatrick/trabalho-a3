@@ -9,7 +9,7 @@ public class Home extends Page {
 
   @Override
   public void render() {
-    // TODO Auto-generated method stub
+    System.out.println("Sou o render da tela de HOME");
 
   }
 }

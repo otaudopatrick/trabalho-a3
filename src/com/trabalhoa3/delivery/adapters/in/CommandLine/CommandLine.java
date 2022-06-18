@@ -1,6 +1,6 @@
 package com.trabalhoa3.delivery.adapters.in.CommandLine;
 
-import com.trabalhoa3.delivery.adapters.in.CommandLine.pages.Home.Home;
+import com.trabalhoa3.delivery.adapters.in.CommandLine.pages.basic.Home;
 
 public class CommandLine {
     private Home home;

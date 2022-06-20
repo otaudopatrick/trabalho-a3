@@ -1,5 +1,7 @@
 package com.trabalhoa3.delivery.adapters.in.CommandLine.pages.admin.client;
 
+import java.io.Console;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -7,6 +9,7 @@ import java.util.List;
 import com.trabalhoa3.delivery.adapters.in.CommandLine.components.ZipCodeRequestComponent;
 import com.trabalhoa3.delivery.adapters.in.CommandLine.core.Page;
 import com.trabalhoa3.delivery.domain.entities.User;
+import com.trabalhoa3.delivery.domain.entities.externalEntities.ViaCepModel;
 import com.trabalhoa3.delivery.util.ConsoleIO;
 
 public class RegisterClientPage extends Page {
@@ -22,8 +25,9 @@ public class RegisterClientPage extends Page {
     System.out.println("+-----------------------+");
   }
 
-  public void printMenu() {
+  public void printMenu() throws IOException, InterruptedException {
     User client = new User();
+    ViaCepModel modelViaCep = new ViaCepModel();
     System.out.println();
 
     ConsoleIO
@@ -42,8 +46,10 @@ public class RegisterClientPage extends Page {
     client.setPhone(this.getPhoneNumber());
     ConsoleIO.typeWriter("Muito bem, estamos quase finalizando o cadastro.\n\n");
     ConsoleIO.typeWriter("Qual é o seu CEP? ");
-    ZipCodeRequestComponent requestZipcode = new ZipCodeRequestComponent(this.scanner.nextLine());
-    requestZipcode.showZipCode();
+    String zipCode = scanner.nextLine();
+    System.out.println(zipCode);
+    modelViaCep.getAtributes(zipCode);
+    ConsoleIO.typeWriter("Você confirma os dados abaixo? \n\n"+modelViaCep.showContent());
 
   }
 
@@ -61,7 +67,13 @@ public class RegisterClientPage extends Page {
   @Override
   public void render() {
     this.printHeader();
-    this.printMenu();
+    try {
+      this.printMenu();
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    } catch (InterruptedException e) {
+      throw new RuntimeException(e);
+    }
   }
 
 }

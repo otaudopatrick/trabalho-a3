@@ -1,11 +1,11 @@
-package com.trabalhoa3.delivery.domain.entities.externalEntities;
+package com.trabalhoa3.delivery.domain.dto;
 
 import com.google.gson.Gson;
-import com.trabalhoa3.delivery.adapters.in.CommandLine.components.ZipCodeRequestComponent;
+import com.trabalhoa3.delivery.domain.services.address.GetZipCode;
 
 import java.io.IOException;
 
-public class ViaCepModel {
+public class ZipCodeDTO {
 
     private String cep;
     private String logradouro;
@@ -14,10 +14,6 @@ public class ViaCepModel {
     private String uf;
 
     public String showContent(){
-        /*System.out.println("CEP informado: "+this.cep);
-        System.out.println("Rua/Avenida: "+ this.logradouro);
-        System.out.println("Cidade: "+ this.localidade);
-        System.out.println("Estado: " + this.uf);*/
         return "CEP informado:" +this.cep+"\nRua/Avenida:"+this.logradouro+"\nBairro: "+this.bairro+"\nCidade: "+this.localidade+"\nEstado: "+this.uf;
     }
 
@@ -63,9 +59,9 @@ public class ViaCepModel {
 
     public void getAtributes(String zipCode) throws IOException, InterruptedException {
         Gson gson = new Gson();
-        ZipCodeRequestComponent request = new ZipCodeRequestComponent();
+        GetZipCode request = new GetZipCode();
         String response = request.zipRequest(zipCode);
-        ViaCepModel model= gson.fromJson(response, ViaCepModel.class);
+        ZipCodeDTO model= gson.fromJson(response, ZipCodeDTO.class);
         this.cep = model.cep;
         this.localidade= model.localidade;
         this.uf = model.uf;

@@ -1,6 +1,6 @@
 package com.trabalhoa3.delivery.domain.services.client;
 
-import com.trabalhoa3.delivery.domain.entities.User;
+import com.trabalhoa3.delivery.domain.entities.Client;
 import com.trabalhoa3.delivery.domain.exceptions.UserExistsException;
 import com.trabalhoa3.delivery.domain.ports.UserRepository;
 
@@ -12,13 +12,13 @@ public class CreateNewClient {
         this.userRepo = userRepo;
     }
 
-    public User execute(User user) {
-        System.out.println(user.toString());
-        User userFromDB = this.userRepo.findByEmail(user.getEmail());
+    public Client execute(Client client) {
+        System.out.println(client.toString());
+        Client clientFromDB = this.userRepo.findByEmail(client.getEmail());
 
-        if (userFromDB != null) {
+        if (clientFromDB != null) {
             throw new UserExistsException("Usuário ja cadastrado");
         }
-        return this.userRepo.save(user);
+        return this.userRepo.save(client);
     }
 }

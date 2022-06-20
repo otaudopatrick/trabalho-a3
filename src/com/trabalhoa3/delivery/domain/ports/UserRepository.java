@@ -2,12 +2,12 @@ package com.trabalhoa3.delivery.domain.ports;
 
 import java.util.List;
 
-import com.trabalhoa3.delivery.domain.entities.User;
+import com.trabalhoa3.delivery.domain.entities.Client;
 
 public interface UserRepository {
-    public User save(User user);
+    public Client save(Client client);
 
-    public User findByEmail(String email);
+    public Client findByEmail(String email);
 
     public List<List<String>> findAll(int page, int size);
 

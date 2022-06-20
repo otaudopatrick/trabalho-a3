@@ -2,14 +2,14 @@ package com.trabalhoa3.delivery.domain.entities;
 
 import com.trabalhoa3.delivery.domain.abstracts.UserAbstract;
 
-public class User extends UserAbstract {
+public class Client extends UserAbstract {
     private int[] socialId;
 
-    public User() {
+    public Client() {
 
     }
 
-    public User(String name, String email, String password) {
+    public Client(String name, String email, String password) {
     }
 
     public int[] getSocialId() {

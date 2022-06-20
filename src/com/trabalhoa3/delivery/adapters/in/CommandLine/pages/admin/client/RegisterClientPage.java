@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 
+import com.trabalhoa3.delivery.adapters.in.CommandLine.components.ZipCodeRequestComponent;
 import com.trabalhoa3.delivery.adapters.in.CommandLine.core.Page;
 import com.trabalhoa3.delivery.domain.entities.User;
 import com.trabalhoa3.delivery.util.ConsoleIO;
@@ -41,7 +42,9 @@ public class RegisterClientPage extends Page {
     client.setPhone(this.getPhoneNumber());
     ConsoleIO.typeWriter("Muito bem, estamos quase finalizando o cadastro.\n\n");
     ConsoleIO.typeWriter("Qual é o seu CEP? ");
-    this.getAddress();
+    ZipCodeRequestComponent requestZipcode = new ZipCodeRequestComponent(this.scanner.nextLine());
+    requestZipcode.showZipCode();
+
   }
 
   private List<Integer> getPhoneNumber() {

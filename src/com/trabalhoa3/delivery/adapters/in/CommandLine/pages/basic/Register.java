@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.trabalhoa3.delivery.adapters.in.CommandLine.core.Page;
 import com.trabalhoa3.delivery.adapters.in.CommandLine.pages.admin.client.RegisterClientPage;
+import com.trabalhoa3.delivery.adapters.in.CommandLine.pages.admin.restaurant.RegisterRestaurantPage;
 
 public class Register extends Page {
   private final int MAX_ATTEMPTS = 2;
@@ -15,7 +16,9 @@ public class Register extends Page {
 
   public Register() {
     RegisterClientPage registerClientPage = new RegisterClientPage();
+    RegisterRestaurantPage registerRestaurantPage = new RegisterRestaurantPage();
     this.pageOptions.put(1, registerClientPage);
+    this.pageOptions.put(3,registerRestaurantPage);
   }
 
   public void printHeader() {

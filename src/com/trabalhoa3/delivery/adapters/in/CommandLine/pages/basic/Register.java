@@ -6,7 +6,11 @@ import java.util.Map;
 
 import com.trabalhoa3.delivery.adapters.in.CommandLine.core.Page;
 import com.trabalhoa3.delivery.adapters.in.CommandLine.pages.admin.client.RegisterClientPage;
+<<<<<<< HEAD
 import com.trabalhoa3.delivery.adapters.in.CommandLine.pages.admin.restaurant.RegisterRestaurantPage;
+=======
+import com.trabalhoa3.delivery.adapters.in.CommandLine.pages.admin.deliveryman.RegisterDeliveryManPage;
+>>>>>>> feat/create-deliveryman
 
 public class Register extends Page {
   private final int MAX_ATTEMPTS = 2;
@@ -16,9 +20,10 @@ public class Register extends Page {
 
   public Register() {
     RegisterClientPage registerClientPage = new RegisterClientPage();
-    RegisterRestaurantPage registerRestaurantPage = new RegisterRestaurantPage();
+    RegisterDeliveryManPage registerDeliveryManPage = new RegisterDeliveryManPage();
+
     this.pageOptions.put(1, registerClientPage);
-    this.pageOptions.put(3,registerRestaurantPage);
+    this.pageOptions.put(2, registerDeliveryManPage);
   }
 
   public void printHeader() {

@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.UUID;
 
-import com.trabalhoa3.delivery.domain.entities.User;
+import com.trabalhoa3.delivery.domain.entities.Client;
 import com.trabalhoa3.delivery.domain.ports.UserRepository;
 import com.trabalhoa3.delivery.util.FileIO;
 
@@ -23,21 +23,21 @@ public class UserRepositoryFileImpl implements UserRepository {
     }
 
     @Override
-    public User save(User user) {
+    public Client save(Client client) {
         UUID uuid = UUID.randomUUID();
-        String[] userData = { uuid.toString(), user.getName(), user.getEmail() };
+        String[] userData = { uuid.toString(), client.getName(), client.getEmail() };
         FileIO.writeFile(this.FILE_PATH, userData);
         return null;
     }
 
     @Override
-    public User findByEmail(String email) {
+    public Client findByEmail(String email) {
         List<List<String>> users = this.findAll();
         for (List<String> user : users) {
             boolean isUserContaisnerEmail = user.contains(email);
             if (isUserContaisnerEmail) {
-                User userFromDb = new User(user.get(1), user.get(2), user.get(3));
-                return userFromDb;
+                Client clientFromDb = new Client(user.get(1), user.get(2), user.get(3));
+                return clientFromDb;
             }
         }
         return null;

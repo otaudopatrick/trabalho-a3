@@ -1,30 +1,31 @@
-package com.trabalhoa3.delivery.adapters.in.CommandLine.pages.admin.client;
+package com.trabalhoa3.delivery.adapters.in.CommandLine.pages.admin.deliveryman;
+
+import com.google.gson.JsonSyntaxException;
+import com.trabalhoa3.delivery.adapters.in.CommandLine.core.Page;
+import com.trabalhoa3.delivery.domain.dto.ZipCodeDTO;
+import com.trabalhoa3.delivery.domain.entities.Client;
+import com.trabalhoa3.delivery.domain.entities.DeliveryMan;
+import com.trabalhoa3.delivery.util.ConsoleIO;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.gson.JsonSyntaxException;
-import com.trabalhoa3.delivery.adapters.in.CommandLine.core.Page;
-import com.trabalhoa3.delivery.domain.entities.Client;
-import com.trabalhoa3.delivery.domain.dto.ZipCodeDTO;
-import com.trabalhoa3.delivery.util.ConsoleIO;
+public class RegisterDeliveryManPage extends Page {
 
-public class RegisterClientPage extends Page {
-
-  public RegisterClientPage() {
+  public RegisterDeliveryManPage() {
   }
 
   private void printHeader() {
     System.out.println("+-----------------------+");
     System.out.println("|                       |");
-    System.out.println("|      Novo cliente     |");
+    System.out.println("|     Novo entregador   |");
     System.out.println("|                       |");
     System.out.println("+-----------------------+");
   }
 
   public void printMenu() throws IOException, InterruptedException {
-    Client client = new Client();
+    DeliveryMan deliveryMan = new DeliveryMan();
     ZipCodeDTO modelViaCep = new ZipCodeDTO();
     System.out.println();
 
@@ -33,15 +34,15 @@ public class RegisterClientPage extends Page {
     ConsoleIO.typeWriter("\nEu sou a Bia e vou ajudá-lo com o seu cadastro.");
     ConsoleIO.typeWriter("\nMas primeiro eu preciso saber quem é você, né?");
     ConsoleIO.typeWriter("\n\nQual o seu nome completo? ");
-    client.setName(this.scanner.nextLine());
+    deliveryMan.setName(this.scanner.nextLine());
 
     ConsoleIO.typeWriter("\n\nPERFEITO!!");
-    ConsoleIO.typeWriter("\n\nPrazer em conhecê-lo " + client.getName() + ".");
+    ConsoleIO.typeWriter("\n\nPrazer em conhecê-lo " + deliveryMan.getName() + ".");
     ConsoleIO
             .typeWriter(
                     "\nNós podemos precisar também entrar em contato com você.\n\n");
     ConsoleIO.typeWriter("Qual é o seu numêro de telefone? ");
-    client.setPhone(this.getPhoneNumber());
+    deliveryMan.setPhone(this.getPhoneNumber());
     ConsoleIO.typeWriter("Muito bem, estamos quase finalizando o cadastro.\n\n");
     int confirma = 0;
     do {
@@ -59,6 +60,7 @@ public class RegisterClientPage extends Page {
         System.out.println(ex.getMessage());
       }
     } while (confirma != 1);
+
 
   }
 

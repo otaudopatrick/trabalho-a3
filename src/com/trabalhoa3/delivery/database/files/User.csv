@@ -1,8 +1,2 @@
-id,name,email,password
-abe86a06-cdbc-4c9a-8db6-00acf6e7995d,Patrick Luz,teste@teste.com,1234
-abe86a06-cdbc-4c9a-8db6-00acf6e7995d,Patrick Luz,teste@teste.com,1234
-abe86a06-cdbc-4c9a-8db6-00acf6e7995d,Patrick Luz,teste@teste.com,1234
-abe86a06-cdbc-4c9a-8db6-00acf6e7995d,Patrick Luz,teste@teste.com,1234
-abe86a06-cdbc-4c9a-8db6-00acf6e7995d,Patrick Luz,teste@teste.com,1234
-abe86a06-cdbc-4c9a-8db6-00acf6e7995d,Patrick Luz,teste@teste.com,1234
-abe86a06-cdbc-4c9a-8db6-00acf6e7995d,Patrick Luz,teste@teste.com,1234
+id,name,email,password,cpf
+1a0553c0-d459-4852-b49d-9a323dce5b6d,Patrick Luz,teste@teste.com,teste1234,02682482066

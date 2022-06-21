@@ -5,6 +5,7 @@ import java.util.InputMismatchException;
 import java.util.Map;
 
 import com.trabalhoa3.delivery.adapters.in.CommandLine.core.Page;
+import com.trabalhoa3.delivery.adapters.in.CommandLine.pages.admin.restaurant.RegisterRestaurantPlatePage;
 
 public class Home extends Page {
 
@@ -16,8 +17,10 @@ public class Home extends Page {
     public Home() {
         Page login = new Login();
         Page register = new Register();
+        RegisterRestaurantPlatePage plate = new RegisterRestaurantPlatePage();
         pageOptions.put(1, login);
         pageOptions.put(2, register);
+        pageOptions.put(3, plate);
     }
 
     public void printHeader() {
@@ -46,7 +49,7 @@ public class Home extends Page {
                 this.validateAttempts();
             }
             this.validateAttempts();
-        } while (this.choice < 0 || this.choice > 2);
+        } while (this.choice < 0 || this.choice > 3);
         this.redirect(this.pageOptions.get(this.choice));
     }
 

@@ -3,7 +3,7 @@ package com.trabalhoa3.delivery.domain.entities;
 import com.trabalhoa3.delivery.domain.abstracts.UserAbstract;
 
 public class User extends UserAbstract {
-    private int[] socialId;
+    private String socialId;
 
     public User() {
 
@@ -12,11 +12,11 @@ public class User extends UserAbstract {
     public User(String name, String email, String password) {
     }
 
-    public int[] getSocialId() {
+    public String getSocialId() {
         return this.socialId;
     }
 
-    public void setSocialId(int[] socialId) {
+    public void setSocialId(String socialId) {
         this.socialId = socialId;
     }
 

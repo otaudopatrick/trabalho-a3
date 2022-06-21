@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 
+import com.google.gson.JsonSyntaxException;
 import com.trabalhoa3.delivery.adapters.in.CommandLine.components.ZipCodeRequestComponent;
 import com.trabalhoa3.delivery.adapters.in.CommandLine.core.Page;
 import com.trabalhoa3.delivery.domain.entities.User;
@@ -42,14 +43,29 @@ public class RegisterClientPage extends Page {
     ConsoleIO
         .typeWriter(
             "\nNós podemos precisar também entrar em contato com você.\n\n");
-    ConsoleIO.typeWriter("Qual é o seu numêro de telefone? ");
+    ConsoleIO.typeWriter("Qual é o seu número de telefone? ");
     client.setPhone(this.getPhoneNumber());
+    scanner.nextLine();
+    ConsoleIO.typeWriter("Qual seu CPF? ");
+    client.setSocialId(this.scanner.nextLine());
+
     ConsoleIO.typeWriter("Muito bem, estamos quase finalizando o cadastro.\n\n");
-    ConsoleIO.typeWriter("Qual é o seu CEP? ");
-    String zipCode = scanner.nextLine();
-    System.out.println(zipCode);
-    modelViaCep.getAtributes(zipCode);
-    ConsoleIO.typeWriter("Você confirma os dados abaixo? \n\n"+modelViaCep.showContent());
+    int confirma =0;
+    do {
+      try {
+        ConsoleIO.typeWriter("Insira seu CEP, para  configurar o endereço: ");
+        String zipCode = scanner.nextLine();
+        modelViaCep.getAtributes(zipCode);
+        ConsoleIO.typeWriter(modelViaCep.showContent());
+        ConsoleIO.typeWriter("\nVocê confirma os dados acima? \n1.Sim\n2.Não\nOpção: ");
+        confirma = scanner.nextInt();
+        scanner.nextLine();
+      }catch (JsonSyntaxException ex){
+
+      }catch (IllegalStateException ex){
+        System.out.println(ex.getMessage());
+      }
+    } while (confirma != 1);
 
   }
 

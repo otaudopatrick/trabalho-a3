@@ -6,7 +6,7 @@ public class ConsoleIO {
     char[] textToChar = text.toCharArray();
     try {
       for (int i = 0; i < textToChar.length; i++) {
-        Thread.sleep(100);
+        Thread.sleep(0);
         System.out.print(textToChar[i]);
       }
     } catch (InterruptedException e) {

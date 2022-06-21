@@ -4,10 +4,10 @@ import com.trabalhoa3.delivery.domain.entities.User;
 import com.trabalhoa3.delivery.domain.exceptions.UserExistsException;
 import com.trabalhoa3.delivery.domain.ports.UserRepository;
 
-public class CreateNewClient {
+public class CreateNewClientService {
     UserRepository userRepo;
 
-    public CreateNewClient(UserRepository userRepo) {
+    public CreateNewClientService(UserRepository userRepo) {
         System.out.println("1: " + userRepo.toString());
         this.userRepo = userRepo;
     }

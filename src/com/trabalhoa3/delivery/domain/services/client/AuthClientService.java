@@ -5,10 +5,10 @@ import com.trabalhoa3.delivery.domain.exceptions.InvalidCredentialsException;
 import com.trabalhoa3.delivery.domain.exceptions.UserNotExistsException;
 import com.trabalhoa3.delivery.domain.ports.UserRepository;
 
-public class AuthClient {
+public class AuthClientService{
     UserRepository userRepo;
 
-    public AuthClient(UserRepository userRepo) {
+    public AuthClientService(UserRepository userRepo) {
         this.userRepo = userRepo;
     }
 

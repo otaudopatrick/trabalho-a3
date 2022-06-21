@@ -19,6 +19,9 @@ public class Seeder {
     public Seeder(Path of) {
         this.of = of;
         this.files.put("user", new String[] { "id", "name", "email", "password" });
+        //Criado usando parte do padrão da documentação abaixo
+        //https://www.ibm.com/docs/pt-br/was/9.0.5?topic=persistence-creating-table-session
+        this.files.put("session", new String[] { "id", "userId", "createTime", "maxInativeTime" });
         this.createFiles();
     }
 

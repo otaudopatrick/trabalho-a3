@@ -13,7 +13,6 @@ public class CreateNewClient {
     }
 
     public User execute(User user) {
-        System.out.println(user.toString());
         User userFromDB = this.userRepo.findByEmail(user.getEmail());
 
         if (userFromDB != null) {
